@@ -63,10 +63,6 @@ Initialize with your credentials and set the environment
 </script>
 ```
 
-Once the LiftForward JS is initialized, the liftforward.checkout method is made available:
-
-`liftforard.checkout(salesQuote, options)` - Sends the sales quote and options object via POST request.
-
 ### Create the HTML Button
 There are two ways to create an HTML Button.
 
@@ -146,10 +142,10 @@ var options = {
 ### Initiate checkout
 Initiating checkout
 
-With the salesQuote and options objects built, you can now call:
+With the button on the HTML page, salesQuote and options objects built, you can now call:
 
 ```
-liftforard.checkout(salesQuote, options);
+liftforward.checkout(salesQuote, options);
 ```
 
 This method will send a POST request to the /sales-quotes/ API endpoint with the sales quote object as the data payload. Then, it will redirect the user to the LiftForward checkout flow on the liftforward.com domain.
