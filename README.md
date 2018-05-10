@@ -135,6 +135,8 @@ This is a charge between your company and LiftForward. When it is created it is 
 Log in to your partner site and go to the charges page
 https://XXXXXXXXXXXXXXXX.liftforward-staging.com/sales/charges
 
+Note: replace `XXXXXXXXXXXXXXXX` with your `merchant_id`.
+
 ![screenshot 2018-05-10 09 37 18](https://user-images.githubusercontent.com/529744/39872382-cead5b46-5435-11e8-9e20-52d56a567157.png)
 
 Find the charge you want to capture, and press capture.
