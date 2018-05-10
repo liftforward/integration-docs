@@ -109,7 +109,7 @@ There are two options - both are optional:
 
 Example Object:
 ```
-let options = {
+var options = {
   merchantCheckoutId: 'ch-03u849vs2f',
   chargeAuthorizedUrl: 'https://store.merchant.com/order-confirmation-page.html'
 }
