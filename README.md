@@ -46,13 +46,14 @@ Everywhere in these doc you see `***VARIABLE***` you should replace this with th
 
 Once you have successfully integreated in the `test` environment, we will set you up with `production` credentials.
 
-### Embed LiftForward
+### 1. Import LiftForward Script
 Embed LiftForward's JS runtime code
 
 ```
 <script src="https://checkout.liftforward.com/checkout.js"></script>
 ```
 
+### 2. Initialize LiftForward Script
 Initialize with your credentials and set the environment
 
 ```
@@ -63,32 +64,41 @@ Initialize with your credentials and set the environment
 </script>
 ```
 
-### Create the HTML Button
-There are two ways to create an HTML Button.
+### 3. Create an onclick Function
+There will be a button that when clicked will send LiftForward information and redirect the user. The first step is to create the function that will do this.
 
-1. Default
-The default way to create a button is to place the following DIV into your HTML document where you want the button.
-```
-<div id="liftforward-checkout-button"></div>
-```
-
-Then in your javascript you will need to use the `button` function to render the liftforward checkout button into that DIV. The `button` function takes two arguments:
-1. A selector for the container it should render into
-2. The onclick function to call when a user clicks it
-
+#### Complete Example
+Here is an example of an `onclick` function that does everything needed:
 ```
 <script>
-  liftforward.button('#liftforward-checkout-button', onCheckoutButtonClick);
+  var onCheckoutButtonClick = function() {
+    var salesQuote = {
+      term: 24,
+      total_sales_tax: 77.99,
+      total_shipping_fee: 42.00,
+      customer_organization_name: "Los Polos Hermanos",
+      customer_first_name: "Gus",
+      customer_last_name: "Fring",
+      line_items: [{
+        quantity: 4,
+        title: "Point of Sale System",
+        sku: "H-BM1-WW",
+        unit_sale_price: 199.99,
+        image_url: "https://jumbotron-production-f.squarecdn.com/assets/129869ad5838545704cd.jpg"
+      }]
+    };
+    let options = {
+      merchantCheckoutId: 'ch-03u849vs2f',
+      chargeAuthorizedUrl: 'https://store.merchant.com/order-confirmation-page.html'
+    }
+    liftforward.checkout(salesQuote, options);
+  }
 </script>
 ```
 
-2. Custom
-If you want complete control over the HTML/CSS of the button, you can manually define your own button. Be sure to attach an `onclick` attribute (named whatever you want) that will handle the click event.
-```
-<button class="btn btn-lg btn-outline-primary btn-primary" onclick="onCheckoutButtonClick()">Checkout</button>
-```
+There are three parts - the `salesQuote` object, the `options` object, and the liftforward `checkout` function.
 
-### Sales Quote Object
+#### Sales Quote Object
 Syntax notes
 * The sales quote object is sent as a JSON object.
 * All numerical values must be sent as integer USD cents ($25.00 -> 2500).
@@ -126,7 +136,7 @@ var salesQuote = {
 };
 ```
 
-### Options Object
+#### Options Object
 There are two options - both are optional:
 * Merchant Checkout ID: The ID of the checkout in your ecommerce system.
 * Charge Authorized Url: The URL you want the user to be redirected to once they sign an agreement with LiftForward.
@@ -139,11 +149,7 @@ var options = {
 }
 ```
 
-### Initiate checkout
-Initiating checkout
-
-With the button on the HTML page, salesQuote and options objects built, you can now call:
-
+#### The LiftForward Checkout Function
 ```
 liftforward.checkout(salesQuote, options);
 ```
@@ -152,36 +158,15 @@ This method will send a POST request to the /sales-quotes/ API endpoint with the
 
 Generally, the checkout will be initiated in the `onclick` event that is called when the user clicks the checkout with liftforward button.
 
-Here is an example that puts everything together:
+
+### 4. Create the HTML Button
+Now that you have an `onclick` function defined, you need to insert an actual `button` into your HTML document. Be sure to attach an `onclick` attribute with the same name as the `onclick` function you previously defined.
 ```
-<script>
-  var onCheckoutButtonClick = function() {
-    var salesQuote = {
-      term: 24,
-      total_sales_tax: 77.99,
-      total_shipping_fee: 42.00,
-      customer_organization_name: "Los Polos Hermanos",
-      customer_first_name: "Gus",
-      customer_last_name: "Fring",
-      line_items: [{
-        quantity: 4,
-        title: "Point of Sale System",
-        sku: "H-BM1-WW",
-        unit_sale_price: 199.99,
-        image_url: "https://jumbotron-production-f.squarecdn.com/assets/129869ad5838545704cd.jpg"
-      }]
-    };
-    let options = {
-      merchantCheckoutId: 'ch-03u849vs2f',
-      chargeAuthorizedUrl: 'https://store.merchant.com/order-confirmation-page.html'
-    }
-    liftforward.checkout(salesQuote, options);
-  }
-</script>
+<button class="btn btn-lg btn-outline-primary btn-primary" onclick="onCheckoutButtonClick()">Checkout</button>
 ```
 
 ### Receive Authorization Token
-After the user has signed an agreement with LiftForward, they will be redirected back to your site. The exact URL they are redirected to is specificed in the `options` object in the initial `liftforward.checkout(salesQuote, options)` call.
+After the user clicks the button, they will be redirected to LiftForward's website where they will apply for a loan. After they are approved and they sign the loan, they will be redirected back to your site. The exact URL they are redirected to is specificed in the `options` object in the initial `liftforward.checkout(salesQuote, options)` call.
 
 LiftForward will append `merchant_checkout_id` and `authorization_token` query params to this URL.
 
