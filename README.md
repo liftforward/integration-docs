@@ -159,10 +159,12 @@ Generally, the checkout will be initiated in the `onclick` event that is called 
 
 
 ### 5. Create the HTML Button
-Now that you have an `onclick` function defined, you need to insert an actual `button` into your HTML document. This button will be a payment method for the user's checkout - either the only one or one of many (such as credit cards, paypal, etc). Be sure to attach an `onclick` attribute with the same name as the `onclick` function you previously defined.
+Now that you have an `onclick` function defined, you can insert an actual `button` into your HTML document. This button will be a payment method for the user's checkout - either the only one or one of many (such as credit cards, paypal, etc). Be sure to attach an `onclick` attribute with the same name as the `onclick` function you previously defined.
 ```
 <button class="btn btn-lg btn-outline-primary btn-primary" onclick="onCheckoutButtonClick()">Checkout</button>
 ```
+
+Using a HTML button is a simply way of integrating with LiftForward, but is not the only way. As long as the `onclick` function event is called - you can imagine many other ways to make it work.
 
 ### 6. Receive Authorization Token
 After the user clicks the button, they will be redirected to LiftForward's website where they will apply for a loan. After they are approved and they sign the loan, they will be redirected back to your site. The exact URL they are redirected to is specificed in the `options` object in the initial `liftforward.checkout(salesQuote, options)` call.
