@@ -32,7 +32,7 @@ A developers guide to integrating your ecommerce site with LiftForward's checkou
 ### Merchant Identifiers and Access Keys
 There are two environments: `test` and `production`.
 
-Our merchant integration specialist will be supplying you with test credentials to start with.
+Our merchant integration specialist will be supplying you with test credentials for each.
 
 Example Credentials:
 ```
@@ -87,7 +87,7 @@ Here is an example of an `onclick` function that does everything needed:
         image_url: "https://jumbotron-production-f.squarecdn.com/assets/129869ad5838545704cd.jpg"
       }]
     };
-    let options = {
+    var options = {
       merchantCheckoutId: 'ch-03u849vs2f',
       chargeAuthorizedUrl: 'https://store.merchant.com/order-confirmation-page.html'
     }
@@ -108,13 +108,14 @@ Sales Quote object validation
 The following data in the sales quote object is required:
 
 * Term: Number of payments customer is going to make on the membership.
+* Sales Tax Rate: The sales tax rate based on the customer's shipping address.
 
 There must be at least one item. The following data in each item object is required:
 
 * Quantity: Count of item included in sales quote.
 * SKU: ID provided by merchant to identifier the item.
 * Title: Short title for the item.
-* Unit Sale Price: Unit price item was sold at. Used to calculate total_sale_price and pre_tax_term_payment.
+* Unit Sale Price: Unit price item was sold at. Used to calculate total_sale_price.
 
 Example Object:
 ```
