@@ -29,6 +29,20 @@ A developers guide to integrating your ecommerce site with LiftForward's checkou
 
 ## Integrating LiftForward checkout.js
 
+### Merchant Identifiers and Access Keys
+
+Our merchant integration specialist will be supplying you with test credentials to start with.
+
+Example Credentials:
+```
+merchant_id: newpartnerfordemo
+api_key: DALtvADu9HAQh0uZ8eI7caIn2emiCNNU
+public_key: 6b4edc235374a97001184a18f257b821
+environment: test
+```
+
+Everywhere in these doc you see {..} you should replace this with the values we provide you
+
 ### Embed LiftForward
 Embed LiftForward's JS runtime code
 
@@ -40,9 +54,9 @@ Initialize with your credentials and set the environment
 
 ```
 <script>
-  liftforward.init({ merchant_id: 'XXXXXXXXXXXXXXX',
-                     public_key: 'XXXXXXXXXXXXXXX',
-                     environment: 'XXXXXXXXXXXXXXX'});
+  liftforward.init({ merchant_id: {MERCHANT-ID},
+                     public_key: {PUBLIC-KEY},
+                     environment: {ENVIRONMENT}});
 </script>
 ```
 Note: replace the `merchant_id` and `public_key` values with your own values. The API key must match the Liftforward-environment you're referencing ('test' or 'production').
@@ -216,12 +230,10 @@ This is a charge between your company and LiftForward. When it is created it is 
 Log in to your partner site and go to the charges page
 
 Test
-https://XXXXXXXXXXXXXXXX.liftforward-staging.com/sales/charges
+https://{MERCHANT-ID}.liftforward-staging.com/sales/charges
 
 Production
-https://XXXXXXXXXXXXXXXX.liftforward.com/sales/charges
-
-Note: replace `XXXXXXXXXXXXXXXX` with your `merchant_id`.
+https://{MERCHANT-ID}.liftforward.com/sales/charges
 
 ![screenshot 2018-05-10 09 37 18](https://user-images.githubusercontent.com/529744/39872382-cead5b46-5435-11e8-9e20-52d56a567157.png)
 
