@@ -230,7 +230,13 @@ When the `charge_authorized_url` page is loading on the redirect we recommend th
 2. Exchange the `authorization_token` for a charge.
 
 #### Creating Charges
-A charge is between your company and LiftForward. This is how much money LiftForward will pay your company, and is separate from the installment charges the cusomter will be paying LiftForward. When the charge is created it is in the `authorized` state - similar to how a Credit Card transaction will first be authorized before it is actually submitted for settlement.
+You will need to exchange your `authorization_token` for a charge. There are three reasons for this.
+
+1. To ensure that the `authorization_token` is real.
+2. To ensure that the `authorization_token` hasn't been used before.
+3. To verify which `merchant_checkout_id` the `authorization_token` belongs to.
+
+A charge should be created when you intend to fulill the customers order. When the charge is created it is in the `authorized` state - similar to how a Credit Card transaction will first be authorized before it is actually submitted for settlement.
 
 POST to the `/charges` endpoint
 
@@ -268,7 +274,7 @@ Response
 Once the charge has been created between your company and LiftForward, you can begin your own fulfillment process - including shipments and emails.
 
 ## Capture the Charge
-Once you have shipped the device you can actually capture the charge. As soon as the charge is captured, LiftForward will send you the money in the amount of the charge. In turn, LiftFoward will begin collecting montly payments from the customer.
+Once you have shipped the device you can actually capture the charge. LiftFoward will then begin collecting montly payments from the customer.
 
 There are two ways to do this - via our partner site, or via API call.
 
