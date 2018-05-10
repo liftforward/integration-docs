@@ -165,7 +165,7 @@ Now that you have an `onclick` function defined, you need to insert an actual `b
 <button class="btn btn-lg btn-outline-primary btn-primary" onclick="onCheckoutButtonClick()">Checkout</button>
 ```
 
-### Receive Authorization Token
+### 5. Receive Authorization Token
 After the user clicks the button, they will be redirected to LiftForward's website where they will apply for a loan. After they are approved and they sign the loan, they will be redirected back to your site. The exact URL they are redirected to is specificed in the `options` object in the initial `liftforward.checkout(salesQuote, options)` call.
 
 LiftForward will append `merchant_checkout_id` and `authorization_token` query params to this URL.
@@ -208,7 +208,7 @@ Response
 
 This is a charge between your company and LiftForward. When it is created it is in the `authorized` state - similar to how a Credit Card transaction will first be authorized before it is actually submitted for settlement.
 
-## Capture the Charge
+### 6. Capture the Charge
 Log in to your partner site and go to the charges page
 
 Test
