@@ -218,12 +218,10 @@ An HTML button is a simply way of doing this:
 ```
 
 ## Receive Authorization Token
-After the customer is approved and they sign the membership agreement, they will be redirected to the `charge_authorized_url` page.
+After the customer is approved and they sign the membership agreement, they will be redirected to the `charge_authorized_url` page appended with the query params of `merchant_checkout_id` and `authorization_token`.
 
-LiftForward will append `merchant_checkout_id` and `authorization_token` query params to this `charge_authorized_url` before redirecting.
-
-When the `charge_authorized_url` page is loading on the redirect we recommend that it do two things:
-1. You can use the `merchant_checkout_id` query param to look up the checkout in your ecommerce system in order to show the user what they just ordered.
+When the `charge_authorized_url` page is loading it should do the following things:
+1. Use the `merchant_checkout_id` query param to look up the checkout in your ecommerce system in order to show the user what they just ordered.
 2. Exchange the `authorization_token` for a charge.
 
 #### Creating Charges
