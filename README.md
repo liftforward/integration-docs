@@ -100,7 +100,6 @@ There are three parts - the `salesQuote` object, the `options` object, and the l
 Syntax notes
 * You should build this object dynamically by adding item objects to it based on cart/checkout contents of your page.
 * The sales quote object is sent as a JSON object.
-* All numerical values must be sent as integer USD cents ($25.00 -> 2500).
 * The items are stored in an object array.
 
 Sales Quote object validation
