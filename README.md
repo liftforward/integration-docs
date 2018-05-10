@@ -212,7 +212,7 @@ This method will send a POST request to the /sales-quotes/ API endpoint with the
 ### 5. Invoke the `onclick` function
 The final step is the call the `onclick` function.
 
-Using a HTML button is a simply way of integrating with LiftForward, as in this example
+An HTML button is a simply way of doing this:
 ```
 <button onclick="onCheckoutButtonClick()">Checkout</button>
 ```
