@@ -218,7 +218,7 @@ An HTML button is a simply way of doing this:
 ```
 
 ## Receive Authorization Token
-After the user clicks the button, they will be redirected to LiftForward's website where they will apply for a membership. After they are approved and they sign the membership agreement, they will be redirected to the `charge_authorized_url` page. The exact URL they are redirected to is specificed by the `charge_authorized_url` property of the `options` object in the initial `liftforward.checkout(salesQuote, options)` call.
+After the customer is approved and they sign the membership agreement, they will be redirected to the `charge_authorized_url` page.
 
 LiftForward will append `merchant_checkout_id` and `authorization_token` query params to this `charge_authorized_url` before redirecting.
 
