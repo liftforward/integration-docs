@@ -49,7 +49,37 @@ Note: replace the `merchant_id` and `public_key` values with your own values. Th
 
 Once the LiftForward JS is initialized, the liftforward.checkout method is made available:
 
-`liftforard.checkout.open(salesQuote, options)` - Sends the sales quote and options object via POST request.
+`liftforard.checkout(salesQuote, options)` - Sends the sales quote and options object via POST request.
+
+
+
+### Initiate checkout
+Initiating checkout
+
+With the salesQuote and options objects built, you can now call:
+
+```
+liftforard.checkout(salesQuote, options);
+```
+
+This method will send a POST request to the /sales-quotes/ API endpoint with the sales quote object as the data payload. Then, it will redirect the user to the LiftForward checkout flow on the liftforward.com domain.
+
+Syntax notes
+* The sales quote object is sent as a JSON object.
+* All numerical values must be sent as integer USD cents ($25.00 -> 2500).
+* The items are stored in an object array. You should build this array dynamically by adding item objects to it based on sales quote contents.
+
+Sales Quote object validation
+The following data in the sales quote object is required:
+
+* Term: Number of payments customer is going to make on the membership.
+
+There must be at least one item. The following data in each item object is required:
+
+* Quantity: Count of item included in sales quote.
+* SKU: ID provided by merchant to identifier the item.
+* Title: Short title for the item.
+* Unit Sale Price: Unit price item was sold at. Used to calculate total_sale_price and pre_tax_term_payment.
 
 TODO: show html etc for checkout.js
 
