@@ -27,7 +27,7 @@ A developers guide to integrating your ecommerce site with LiftForward's checkou
 
 ## Integrating LiftForward checkout.js
 
-### Merchant Identifiers and Access Keys
+### 1. Obtain Merchant Identifiers and Access Keys
 There are two environments: `test` and `production`.
 
 Our merchant integration specialist will be supplying you with test credentials for each.
@@ -44,15 +44,15 @@ Everywhere in these doc you see `***VARIABLE***` you should replace this with th
 
 Once you have successfully integreated in the `test` environment, we will set you up with `production` credentials.
 
-### 1. Import LiftForward Script
-Embed LiftForward's JS runtime code
+### 2. Import LiftForward Script
+Embed LiftForward's JS runtime code on the page that your customers are checking out on.
 
 ```
 <script src="https://checkout.liftforward.com/checkout.js"></script>
 ```
 
-### 2. Initialize LiftForward Script
-Initialize with your credentials and set the environment
+### 3. Initialize LiftForward Script
+Once the script has been loaded on the page, you can initialize it with your credentials.
 
 ```
 <script>
@@ -62,7 +62,7 @@ Initialize with your credentials and set the environment
 </script>
 ```
 
-### 3. Create an onclick Function
+### 4. Create an onclick Function
 There will be a button that when clicked will send LiftForward information and redirect the user. The first step is to create the function that will do this.
 
 #### Complete Example
@@ -158,13 +158,13 @@ This method will send a POST request to the /sales-quotes/ API endpoint with the
 Generally, the checkout will be initiated in the `onclick` event that is called when the user clicks the checkout with liftforward button.
 
 
-### 4. Create the HTML Button
-Now that you have an `onclick` function defined, you need to insert an actual `button` into your HTML document. Be sure to attach an `onclick` attribute with the same name as the `onclick` function you previously defined.
+### 5. Create the HTML Button
+Now that you have an `onclick` function defined, you need to insert an actual `button` into your HTML document. This button will be a payment method for the user's checkout - either the only one or one of many (such as credit cards, paypal, etc). Be sure to attach an `onclick` attribute with the same name as the `onclick` function you previously defined.
 ```
 <button class="btn btn-lg btn-outline-primary btn-primary" onclick="onCheckoutButtonClick()">Checkout</button>
 ```
 
-### 5. Receive Authorization Token
+### 6. Receive Authorization Token
 After the user clicks the button, they will be redirected to LiftForward's website where they will apply for a loan. After they are approved and they sign the loan, they will be redirected back to your site. The exact URL they are redirected to is specificed in the `options` object in the initial `liftforward.checkout(salesQuote, options)` call.
 
 LiftForward will append `merchant_checkout_id` and `authorization_token` query params to this URL.
@@ -207,7 +207,7 @@ Response
 
 This is a charge between your company and LiftForward. When it is created it is in the `authorized` state - similar to how a Credit Card transaction will first be authorized before it is actually submitted for settlement.
 
-### 6. Capture the Charge
+### 7. Capture the Charge
 Log in to your partner site and go to the charges page
 
 Test
