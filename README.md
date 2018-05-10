@@ -30,6 +30,7 @@ A developers guide to integrating your ecommerce site with LiftForward's checkou
 ## Integrating LiftForward checkout.js
 
 ### Merchant Identifiers and Access Keys
+There are two environments: `test` and `production`.
 
 Our merchant integration specialist will be supplying you with test credentials to start with.
 
@@ -42,6 +43,8 @@ ENVIRONMENT: test
 ```
 
 Everywhere in these doc you see `***VARIABLE***` you should replace this with the values we provide you
+
+Once you have successfully integreated in the `test` environment, we will set you up with `production` credentials.
 
 ### Embed LiftForward
 Embed LiftForward's JS runtime code
