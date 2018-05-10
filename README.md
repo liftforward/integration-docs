@@ -112,11 +112,6 @@ liftforard.checkout(salesQuote, options);
 
 This method will send a POST request to the /sales-quotes/ API endpoint with the sales quote object as the data payload. Then, it will redirect the user to the LiftForward checkout flow on the liftforward.com domain.
 
-
-TODO: show html etc for checkout.js
-
-what methods to call etc..
-
 ### Receive Authorization Token
 After the user has signed an agreement with LiftForward, they will be redirected back to your site. The exact URL they are redirected to is specificed in the `options` object in the initial `liftforward.checkout(salesQuote, options)` call.
 
@@ -170,4 +165,3 @@ Note: replace `XXXXXXXXXXXXXXXX` with your `merchant_id`.
 ![screenshot 2018-05-10 09 37 18](https://user-images.githubusercontent.com/529744/39872382-cead5b46-5435-11e8-9e20-52d56a567157.png)
 
 Find the charge you want to capture, and press capture.
-TODO add more detail of remaining steps
