@@ -55,11 +55,23 @@ Once the LiftForward JS is initialized, the liftforward.checkout method is made 
 There are two ways to create an HTML Button.
 
 1. Default
+The default way to create a button is to place the following DIV into your HTML document where you want the button.
 ```
 <div id="liftforward-checkout-button"></div>
 ```
 
+Then in your javascript you will need to use the `button` function to render the liftforward checkout button into that DIV. The `button` function takes two arguments:
+1. A selector for the container it should render into
+2. The onclick function to call when a user clicks it
+
+```
+<script>
+  liftforward.button('#liftforward-checkout-button', onCheckoutButtonClick);
+</script>
+```
+
 2. Custom
+If you want complete control over the HTML/CSS of the button, you can manually define your own button. Be sure to attach an `onclick` attribute (named whatever you want) that will handle the click event.
 ```
 <button class="btn btn-lg btn-outline-primary btn-primary" onclick="onCheckoutButtonClick()">Checkout</button>
 ```
