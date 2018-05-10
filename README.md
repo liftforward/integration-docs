@@ -51,6 +51,19 @@ Once the LiftForward JS is initialized, the liftforward.checkout method is made 
 
 `liftforard.checkout(salesQuote, options)` - Sends the sales quote and options object via POST request.
 
+### Create the HTML Button
+There are two ways to create an HTML Button.
+
+1. Default
+```
+<div id="liftforward-checkout-button"></div>
+```
+
+2. Custom
+```
+<button class="btn btn-lg btn-outline-primary btn-primary" onclick="onCheckoutButtonClick()">Checkout</button>
+```
+
 ### Sales Quote Object
 Syntax notes
 * The sales quote object is sent as a JSON object.
@@ -75,6 +88,7 @@ var salesQuote = {
   term: 24,
   total_sales_tax: 77.99,
   total_shipping_fee: 42.00,
+  sales_tax_rate: 8.89,
   customer_organization_name: "Los Polos Hermanos",
   customer_first_name: "Gus",
   customer_last_name: "Fring",
@@ -97,7 +111,7 @@ Example Object:
 ```
 let options = {
   merchantCheckoutId: 'ch-03u849vs2f',
-  chargeAuthorizedUrl: 'https://tech.liftforward.com/thank-you.html'
+  chargeAuthorizedUrl: 'https://store.merchant.com/order-confirmation-page.html'
 }
 ```
 
