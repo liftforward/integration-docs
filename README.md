@@ -115,24 +115,78 @@ There must be at least one item. The following data in each item object is requi
 * Title: Short title for the item.
 * Unit Sale Price: Unit price item was sold at. Used to calculate total_sale_price.
 
-Example Object:
+Minimum Example Object:
 ```
 var salesQuote = {
   term: 24,
-  total_sales_tax: 77.99,
-  total_shipping_fee: 42.00,
   sales_tax_rate: 8.89,
-  customer_organization_name: "Los Polos Hermanos",
-  customer_first_name: "Gus",
-  customer_last_name: "Fring",
   line_items: [{
     quantity: 4,
     title: "Point of Sale System",
     sku: "H-BM1-WW",
-    unit_sale_price: 199.99,
-    image_url: "https://jumbotron-production-f.squarecdn.com/assets/129869ad5838545704cd.jpg"
+    unit_sale_price: 199.99
   }]
 };
+```
+
+Full Example Object:
+```
+{
+  "term": 24,
+  "customer_email": "gus.fring@lospoloshermanos.com",
+  "customer_first_name": "Gus",
+  "customer_last_name": "Fring",
+  "customer_organization_name": "Los Polos Hermanos",
+  "customer_street": "12000 – 12100 Coors Rd SW",
+  "customer_city": "Albuquerque",
+  "customer_state": "NM",
+  "customer_postal": "87045",
+  "customer_country_code": "US",
+  "customer_phone": "123-456-7890",
+  "customer_website": "https://lospoloshermanos.com",
+  "customer_description": "Fried chicken franchise popular in the south west.",
+  "customer_organization_structure": "corporation",
+  "merchant_customer_id": "123123123",
+  "merchant_sales_quote_id": "3422343242",
+  "sales_rep_first_name": "Walter",
+  "sales_rep_last_name": "White",
+  "sales_rep_email": "walter.white@jpwynnehighschool.edu",
+  "shipping_first_name": "Gus",
+  "shipping_last_name": "Fring",
+  "shipping_organization_name": "Los Polos Hermanos",
+  "shipping_street": "12000 – 12100 Coors Rd SW",
+  "shipping_city": "Albuquerque",
+  "shipping_state": "NM",
+  "shipping_postal": "87045",
+  "shipping_country_code": "US",
+  "shipping_phone": "US",
+  "shipping_email": "US",
+  "shipping_via": "expedited",
+  "effective_tax_rate": 0.075,
+  "total_sales_tax": 34.44,
+  "total_shipping_fee": 35,
+  "miscellaneous_fees": [
+    {
+      "name": "ca-env-fee",
+      "display_name": "California Environmental Fee",
+      "fee": 6
+    }
+  ],
+  "meta_data": {},
+  "line_items": [
+    {
+      "quantity": 2,
+      "sku": "BM101",
+      "title": "Blue Rock Candy",
+      "description": "Blue Rock Candy is the best candy ever!",
+      "category": "candy",
+      "unit_retail_price": 283.34,
+      "unit_sale_price": 232.44,
+      "image_url": "//i.pinimg.com/474x/e1/27/4e/bm101.jpg",
+      "meta_data": {}
+    }
+  ]
+}
 ```
 
 #### Options Object
@@ -166,7 +220,7 @@ Now that you have an `onclick` function defined, you can insert an actual `butto
 
 Using a HTML button is a simply way of integrating with LiftForward, but is not the only way. As long as the `onclick` function event is called - you can imagine many other ways to make it work.
 
-### 6. Receive Authorization Token
+## Receive Authorization Token
 After the user clicks the button, they will be redirected to LiftForward's website where they will apply for a loan. After they are approved and they sign the loan, they will be redirected back to your site. The exact URL they are redirected to is specificed in the `options` object in the initial `liftforward.checkout(salesQuote, options)` call.
 
 LiftForward will append `merchant_checkout_id` and `authorization_token` query params to this URL.
@@ -209,7 +263,7 @@ Response
 
 This is a charge between your company and LiftForward. When it is created it is in the `authorized` state - similar to how a Credit Card transaction will first be authorized before it is actually submitted for settlement.
 
-### 7. Capture the Charge
+## Capture the Charge
 Log in to your partner site and go to the charges page
 
 Test
