@@ -264,7 +264,12 @@ Response
 }
 ```
 
+#### Fulfillment
+Once the charge has been created between your company and LiftForward, you can begin your own fulfillment process - including shipments and emails.
+
 ## Capture the Charge
+Once you have shipped the device you can actually capture the charge.
+
 Log in to your partner site and go to the charges page
 
 Test
@@ -276,3 +281,5 @@ https://`***MERCHANT_ID***`.liftforward.com/sales/charges
 ![screenshot 2018-05-10 09 37 18](https://user-images.githubusercontent.com/529744/39872382-cead5b46-5435-11e8-9e20-52d56a567157.png)
 
 Find the charge you want to capture, and press capture.
+
+Once you do that LiftForward will then send you the money in the amount of the charge.
