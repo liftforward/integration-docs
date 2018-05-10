@@ -29,6 +29,28 @@ A developers guide to integrating your ecommerce site with LiftForward's checkou
 
 ## Integrating LiftForward checkout.js
 
+### Embed LiftForward
+Embed LiftForward's JS runtime code
+
+```
+<script src="https://checkout.liftforward-staging.com/checkout.js"></script>
+```
+
+Initialize with your credentials and set the environment
+
+```
+<script>
+  liftforward.init({ merchant_id: 'XXXXXXXXXXXXXXX',
+                     public_key: 'XXXXXXXXXXXXXXX',
+                     environment: 'XXXXXXXXXXXXXXX'});
+</script>
+```
+Note: replace the `merchant_id` and `public_key` values with your own values. The API key must match the Liftforward-environment you're referencing ('test' or 'production').
+
+Once the LiftForward JS is initialized, the liftforward.checkout method is made available:
+
+`liftforard.checkout.open(salesQuote, options)` - Sends the sales quote and options object via POST request.
+
 TODO: show html etc for checkout.js
 
 what methods to call etc..
