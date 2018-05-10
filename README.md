@@ -87,6 +87,38 @@ There must be at least one item. The following data in each item object is requi
 * Title: Short title for the item.
 * Unit Sale Price: Unit price item was sold at. Used to calculate total_sale_price and pre_tax_term_payment.
 
+Example Object:
+```
+var salesQuote = {
+  term: 24,
+  total_sales_tax: 77.99,
+  total_shipping_fee: 42.00,
+  customer_organization_name: "Los Polos Hermanos",
+  customer_first_name: "Gus",
+  customer_last_name: "Fring",
+  line_items: [{
+    quantity: 4,
+    title: "Point of Sale System",
+    sku: "H-BM1-WW",
+    unit_sale_price: 199.99,
+    image_url: "https://jumbotron-production-f.squarecdn.com/assets/129869ad5838545704cd.jpg"
+  }]
+};
+```
+
+### Options Object
+There are two options - both are optional:
+* Merchant Checkout ID: The ID of the checkout in your ecommerce system.
+* Charge Authorized Url: The URL you want the user to be redirected to once they sign an agreement with LiftForward.
+
+Example Object:
+```
+let options = {
+  merchantCheckoutId: 'ch-03u849vs2f',
+  chargeAuthorizedUrl: 'https://tech.liftforward.com/thank-you.html'
+}
+```
+
 ### Receive Authorization Token
 After the user has signed an agreement with LiftForward, they will be redirected back to your site. The exact URL they are redirected to is specificed in the `options` object in the initial `liftforward.checkout(salesQuote, options)` call.
 
