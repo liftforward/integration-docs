@@ -144,8 +144,8 @@ There are two options - both are optional:
 Example Object:
 ```
 var options = {
-  merchantCheckoutId: 'ch-03u849vs2f',
-  chargeAuthorizedUrl: 'https://store.merchant.com/order-confirmation-page.html'
+  merchant_checkout_id: 'ch-03u849vs2f',
+  charge_authorized_url: 'https://store.merchant.com/order-confirmation-page.html'
 }
 ```
 
