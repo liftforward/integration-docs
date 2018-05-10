@@ -35,10 +35,10 @@ Our merchant integration specialist will be supplying you with test credentials 
 
 Example Credentials:
 ```
-merchant_id: newpartnerfordemo
-api_key: DALtvADu9HAQh0uZ8eI7caIn2emiCNNU
-public_key: 6b4edc235374a97001184a18f257b821
-environment: test
+MERCHANT_ID: newpartnerfordemo
+API_KEY: DALtvADu9HAQh0uZ8eI7caIn2emiCNNU
+PUBLIC_KEY: 6b4edc235374a97001184a18f257b821
+ENVIRONMENT: test
 ```
 
 Everywhere in these doc you see {..} you should replace this with the values we provide you
@@ -54,12 +54,11 @@ Initialize with your credentials and set the environment
 
 ```
 <script>
-  liftforward.init({ merchant_id: {MERCHANT-ID},
-                     public_key: {PUBLIC-KEY},
-                     environment: {ENVIRONMENT}});
+  liftforward.init({ merchant_id: '***MERCHANT_ID***',
+                     public_key: '***PUBLIC_KEY***',
+                     environment: '***ENVIRONMENT***'});
 </script>
 ```
-Note: replace the `merchant_id` and `public_key` values with your own values. The API key must match the Liftforward-environment you're referencing ('test' or 'production').
 
 Once the LiftForward JS is initialized, the liftforward.checkout method is made available:
 
@@ -175,7 +174,7 @@ Here is an example that puts everything together:
     };
     let options = {
       merchantCheckoutId: 'ch-03u849vs2f',
-      chargeAuthorizedUrl: 'https://tech.liftforward.com/thank-you.html'
+      chargeAuthorizedUrl: 'https://store.merchant.com/order-confirmation-page.html'
     }
     liftforward.checkout(salesQuote, options);
   }
@@ -202,13 +201,12 @@ Production
 Headers
 ```
 "Content-Type":"application/json"
-"apikey":"XXXXXXXXXXXXXXX"
+"apikey":"***API_KEY***"
 ```
-Note: replace the `apikey` value with your actual API key. The API key must match the Liftforward-environment you're referencing ('test' or 'production').
 
 Body
 ```
-{"authorization_token": "XXXXXXXXXXXXXXX"}
+{"authorization_token": "XXXXXXXXXXXXXXXXX"}
 ```
 Note: replace the `authorization_token` value with the value from the `authorization_token` query param in the redirect url
 
@@ -230,10 +228,10 @@ This is a charge between your company and LiftForward. When it is created it is 
 Log in to your partner site and go to the charges page
 
 Test
-https://{MERCHANT-ID}.liftforward-staging.com/sales/charges
+https://***MERCHANT_ID***.liftforward-staging.com/sales/charges
 
 Production
-https://{MERCHANT-ID}.liftforward.com/sales/charges
+https://***MERCHANT_ID***.liftforward.com/sales/charges
 
 ![screenshot 2018-05-10 09 37 18](https://user-images.githubusercontent.com/529744/39872382-cead5b46-5435-11e8-9e20-52d56a567157.png)
 
