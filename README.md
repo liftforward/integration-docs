@@ -41,7 +41,7 @@ PUBLIC_KEY: 6b4edc235374a97001184a18f257b821
 ENVIRONMENT: test
 ```
 
-Everywhere in these doc you see {..} you should replace this with the values we provide you
+Everywhere in these doc you see ***VARIABLE*** you should replace this with the values we provide you
 
 ### Embed LiftForward
 Embed LiftForward's JS runtime code
