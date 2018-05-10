@@ -282,4 +282,4 @@ https://`***MERCHANT_ID***`.liftforward.com/sales/charges
 
 Find the charge you want to capture, and press capture.
 
-Once you do that LiftForward will then send you the money in the amount of the charge.
+Once you do that LiftForward will then send you the money in the amount of the charge. In turn, LiftFoward will begin collecting montly payments from the customer.
