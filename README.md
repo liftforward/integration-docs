@@ -25,8 +25,6 @@ A developers guide to integrating your ecommerce site with LiftForward's checkou
 13. Order is created.
 14. Customer is presented with order confirmation page/message.
 
-
-
 ## Integrating LiftForward checkout.js
 
 ### Merchant Identifiers and Access Keys
@@ -100,9 +98,10 @@ There are three parts - the `salesQuote` object, the `options` object, and the l
 
 #### Sales Quote Object
 Syntax notes
+* You should build this object dynamically by adding item objects to it based on cart/checkout contents of your page.
 * The sales quote object is sent as a JSON object.
 * All numerical values must be sent as integer USD cents ($25.00 -> 2500).
-* The items are stored in an object array. You should build this array dynamically by adding item objects to it based on sales quote contents.
+* The items are stored in an object array.
 
 Sales Quote object validation
 The following data in the sales quote object is required:
