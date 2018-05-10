@@ -41,7 +41,7 @@ PUBLIC_KEY: 6b4edc235374a97001184a18f257b821
 ENVIRONMENT: test
 ```
 
-Everywhere in these doc you see ***VARIABLE*** you should replace this with the values we provide you
+Everywhere in these doc you see `***VARIABLE***` you should replace this with the values we provide you
 
 ### Embed LiftForward
 Embed LiftForward's JS runtime code
@@ -228,10 +228,10 @@ This is a charge between your company and LiftForward. When it is created it is 
 Log in to your partner site and go to the charges page
 
 Test
-https://***MERCHANT_ID***.liftforward-staging.com/sales/charges
+https://`***MERCHANT_ID***`.liftforward-staging.com/sales/charges
 
 Production
-https://***MERCHANT_ID***.liftforward.com/sales/charges
+https://`***MERCHANT_ID***`.liftforward.com/sales/charges
 
 ![screenshot 2018-05-10 09 37 18](https://user-images.githubusercontent.com/529744/39872382-cead5b46-5435-11e8-9e20-52d56a567157.png)
 
