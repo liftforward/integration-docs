@@ -62,7 +62,7 @@ Once the script has been loaded on the page, you can initialize it with your cre
 </script>
 ```
 
-### 4. Create an onclick Function
+### 4. Create an `onclick` Function
 There will be a button that when clicked will send LiftForward information and redirect the user. The first step is to create the function that will do this.
 
 #### Complete Example
