@@ -221,7 +221,7 @@ Now that you have an `onclick` function defined, you can insert an actual `butto
 Using a HTML button is a simply way of integrating with LiftForward, but is not the only way. As long as the `onclick` function event is called - you can imagine many other ways to make it work.
 
 ## Receive Authorization Token
-After the user clicks the button, they will be redirected to LiftForward's website where they will apply for a membership. After they are approved and they sign the membership agreement, they will be redirected back to your site. The exact URL they are redirected to is specificed in the `options` object in the initial `liftforward.checkout(salesQuote, options)` call.
+After the user clicks the button, they will be redirected to LiftForward's website where they will apply for a membership. After they are approved and they sign the membership agreement, they will be redirected back to your site. The exact URL they are redirected to is specificed by the charge_authorized_url property of this `options` object in the initial `liftforward.checkout(salesQuote, options)` call.
 
 LiftForward will append `merchant_checkout_id` and `authorization_token` query params to this URL.
 
