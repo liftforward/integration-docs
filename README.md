@@ -272,7 +272,7 @@ Once the charge has been created, you can begin your fulfillment process - inclu
 ## Capture the Charge
 Once you are ready to ship the order will capture the charge. LiftFoward will then begin collecting payments from the customer.
 
-There are two ways to do this - via our partner site, or via API call.
+There are two ways to do capture a charge - via our partner site, or via API call.
 
 #### Partner Site
 Log in to your partner site and go to the charges page
