@@ -51,24 +51,6 @@ Once the LiftForward JS is initialized, the liftforward.checkout method is made 
 
 `liftforard.checkout(salesQuote, options)` - Sends the sales quote and options object via POST request.
 
-
-
-### Initiate checkout
-Initiating checkout
-
-With the salesQuote and options objects built, you can now call:
-
-```
-liftforard.checkout(salesQuote, options);
-```
-
-This method will send a POST request to the /sales-quotes/ API endpoint with the sales quote object as the data payload. Then, it will redirect the user to the LiftForward checkout flow on the liftforward.com domain.
-
-
-TODO: show html etc for checkout.js
-
-what methods to call etc..
-
 ### Sales Quote Object
 Syntax notes
 * The sales quote object is sent as a JSON object.
@@ -118,6 +100,22 @@ let options = {
   chargeAuthorizedUrl: 'https://tech.liftforward.com/thank-you.html'
 }
 ```
+
+### Initiate checkout
+Initiating checkout
+
+With the salesQuote and options objects built, you can now call:
+
+```
+liftforard.checkout(salesQuote, options);
+```
+
+This method will send a POST request to the /sales-quotes/ API endpoint with the sales quote object as the data payload. Then, it will redirect the user to the LiftForward checkout flow on the liftforward.com domain.
+
+
+TODO: show html etc for checkout.js
+
+what methods to call etc..
 
 ### Receive Authorization Token
 After the user has signed an agreement with LiftForward, they will be redirected back to your site. The exact URL they are redirected to is specificed in the `options` object in the initial `liftforward.checkout(salesQuote, options)` call.
