@@ -227,7 +227,10 @@ LiftForward will append `merchant_checkout_id` and `authorization_token` query p
 
 When the `charge_authorized_url` page is loading on the redirect we recommend that it do two things:
 1. You can use the `merchant_checkout_id` query param to look up the checkout in your ecommerce system in order to show the user what they just ordered.
-2. Take the `authorization_token` from the query param and create a charge on LiftForward.
+2. Exchange the `authorization_token` for a charge.
+
+#### Creating Charges
+A charge is between your company and LiftForward. This is how much money LiftForward will pay your company, and is separate from the installment charges the cusomter will be paying LiftForward. When the charge is created it is in the `authorized` state - similar to how a Credit Card transaction will first be authorized before it is actually submitted for settlement.
 
 POST to the `/charges` endpoint
 
@@ -260,8 +263,6 @@ Response
     }
 }
 ```
-
-This is a charge between your company and LiftForward. When it is created it is in the `authorized` state - similar to how a Credit Card transaction will first be authorized before it is actually submitted for settlement.
 
 ## Capture the Charge
 Log in to your partner site and go to the charges page
