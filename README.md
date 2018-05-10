@@ -33,7 +33,7 @@ A developers guide to integrating your ecommerce site with LiftForward's checkou
 Embed LiftForward's JS runtime code
 
 ```
-<script src="https://checkout.liftforward-staging.com/checkout.js"></script>
+<script src="https://checkout.liftforward.com/checkout.js"></script>
 ```
 
 Initialize with your credentials and set the environment
