@@ -224,7 +224,7 @@ When the `charge_authorized_url` page is loading it should do the following thin
 1. Use the `merchant_checkout_id` query param to look up the checkout in your ecommerce system in order to show the user what they just ordered.
 2. Exchange the `authorization_token` for a charge.
 
-#### Creating Charges
+#### Charges
 You will need to exchange your `authorization_token` for a charge. There are three reasons for this.
 
 1. To ensure that the `authorization_token` is real.
@@ -233,7 +233,8 @@ You will need to exchange your `authorization_token` for a charge. There are thr
 
 A charge should be created when you intend to fulill the customers order. When the charge is created it is in the `authorized` state - similar to how a Credit Card transaction will first be authorized before it is actually submitted for settlement.
 
-POST to the `/charges` endpoint
+#### Creating Charges
+To create a charge POST to the `/charges` endpoint
 
 Test
 `https://api.liftforward.com/test/v2/charges`
@@ -266,7 +267,7 @@ Response
 ```
 
 #### Fulfillment
-Once the charge has been created between your company and LiftForward, you can begin your own fulfillment process - including shipments and emails.
+Once the charge has been created, you can begin your own fulfillment process - including shipments and emails.
 
 ## Capture the Charge
 Once you have shipped the device you can actually capture the charge. LiftFoward will then begin collecting montly payments from the customer.
