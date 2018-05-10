@@ -210,11 +210,11 @@ liftforward.checkout(salesQuote, options);
 This method will send a POST request to the /sales-quotes/ API endpoint with the sales quote object as the data payload. Then, it will redirect the user to the LiftForward checkout flow on the liftforward.com domain.
 
 ### 5. Invoke the `onclick` function
-Using a HTML button is a simply way of integrating with LiftForward, but is not the only way. As long as the `onclick` function event is called - you can imagine many other ways to make it work.
+The final step is the call the `onclick` function.
 
-This button will be a payment method for the user's checkout - either the only one or one of many (such as credit cards, paypal, etc). Be sure to attach an `onclick` attribute with the same name as the `onclick` function you previously defined.
+Using a HTML button is a simply way of integrating with LiftForward, as in this example
 ```
-<button class="btn btn-lg btn-outline-primary btn-primary" onclick="onCheckoutButtonClick()">Checkout</button>
+<button onclick="onCheckoutButtonClick()">Checkout</button>
 ```
 
 ## Receive Authorization Token
