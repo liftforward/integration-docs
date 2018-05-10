@@ -268,8 +268,11 @@ Response
 Once the charge has been created between your company and LiftForward, you can begin your own fulfillment process - including shipments and emails.
 
 ## Capture the Charge
-Once you have shipped the device you can actually capture the charge.
+Once you have shipped the device you can actually capture the charge. As soon as the charge is captured, LiftForward will send you the money in the amount of the charge. In turn, LiftFoward will begin collecting montly payments from the customer.
 
+There are two ways to do this - via our partner site, or via API call.
+
+#### Partner Site
 Log in to your partner site and go to the charges page
 
 Test
@@ -282,4 +285,36 @@ https://`***MERCHANT_ID***`.liftforward.com/sales/charges
 
 Find the charge you want to capture, and press capture.
 
-Once you do that LiftForward will then send you the money in the amount of the charge. In turn, LiftFoward will begin collecting montly payments from the customer.
+#### API call
+
+POST to the `/charges/:id/capture` endpoint
+
+Test
+`https://api.liftforward.com/test/v2/charges/:id/capture`
+
+Production
+`https://api.liftforward.com/v2/charges/:id/capture`
+
+Headers
+```
+"Content-Type":"application/json"
+"apikey":"***API_KEY***"
+```
+
+Body
+```
+
+```
+Note: the body is empty
+
+Response
+```
+{
+    "charge": {
+        "id": "CHF5T3M22NS",
+        "amount": 319.98,
+        "merchant_checkout_id": "ch-03u849vs2f",
+        "status": "captured"
+    }
+}
+```
