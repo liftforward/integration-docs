@@ -64,6 +64,12 @@ liftforard.checkout(salesQuote, options);
 
 This method will send a POST request to the /sales-quotes/ API endpoint with the sales quote object as the data payload. Then, it will redirect the user to the LiftForward checkout flow on the liftforward.com domain.
 
+
+TODO: show html etc for checkout.js
+
+what methods to call etc..
+
+### Sales Quote Object
 Syntax notes
 * The sales quote object is sent as a JSON object.
 * All numerical values must be sent as integer USD cents ($25.00 -> 2500).
@@ -81,18 +87,55 @@ There must be at least one item. The following data in each item object is requi
 * Title: Short title for the item.
 * Unit Sale Price: Unit price item was sold at. Used to calculate total_sale_price and pre_tax_term_payment.
 
-TODO: show html etc for checkout.js
-
-what methods to call etc..
-
-### Sales Quote Object
-
-TODO: provide details
-
 ### Receive Authorization Token
+After the user has signed an agreement with LiftForward, they will be redirected back to your site. The exact URL they are redirected to is specificed in the `options` object in the initial `liftforward.checkout(salesQuote, options)` call.
 
-TODO: provide details
+LiftForward will append `merchant_checkout_id` and `authorization_token` query params to this URL.
 
-...
+When the page is loading on the redirect we recommend that you do two things:
+1. You can use the `merchant_checkout_id` query param to look up the checkout in your ecommerce system in order to show the user what they just ordered.
+2. Take the `authorization_token` from the query param and create a charge on LiftForward.
 
+POST to the `/charges` endpoint
+
+Test
+`https://api.liftforward.com/test/v2/charges`
+
+Production
+`https://api.liftforward.com/v2/charges`
+
+Headers
+```
+"Content-Type":"application/json"
+"apikey":"XXXXXXXXXXXXXXX"
+```
+Note: replace the `apikey` value with your actual API key. The API key must match the Liftforward-environment you're referencing ('test' or 'production').
+
+Body
+```
+{"authorization_token": "XXXXXXXXXXXXXXX"}
+```
+Note: replace the `authorization_token` value with the value from the `authorization_token` query param in the redirect url
+
+Response
+```
+{
+    "charge": {
+        "id": "CHF5T3M22NS",
+        "amount": 319.98,
+        "merchant_checkout_id": "ch-03u849vs2f",
+        "status": "authorized"
+    }
+}
+```
+
+This is a charge between your company and LiftForward. When it is created it is in the `authorized` state - similar to how a Credit Card transaction will first be authorized before it is actually submitted for settlement.
+
+## Capture the Charge
+Log in to your partner site and go to the charges page
+https://XXXXXXXXXXXXXXXX.liftforward-staging.com/sales/charges
+
+![screenshot 2018-05-10 09 37 18](https://user-images.githubusercontent.com/529744/39872382-cead5b46-5435-11e8-9e20-52d56a567157.png)
+
+Find the charge you want to capture, and press capture.
 TODO add more detail of remaining steps
