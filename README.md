@@ -270,7 +270,7 @@ Response
 Once the charge has been created, you can begin your fulfillment process - including shipments and emails.
 
 ## Capture the Charge
-Once you have shipped the device you can actually capture the charge. LiftFoward will then begin collecting montly payments from the customer.
+Once you are ready to ship the order will capture the charge. LiftFoward will then begin collecting payments from the customer.
 
 There are two ways to do this - via our partner site, or via API call.
 
