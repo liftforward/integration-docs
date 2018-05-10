@@ -192,7 +192,7 @@ Full Example Object:
 #### Options Object
 There are two options - both are optional:
 * Merchant Checkout ID: The ID of the checkout in your ecommerce system.
-* Charge Authorized Url: The URL you want the user to be redirected to once they sign an agreement with LiftForward.
+* Charge Authorized URL: The URL you want the user to be redirected to once they sign an agreement with LiftForward.
 
 Example Object:
 ```
