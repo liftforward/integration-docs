@@ -22,7 +22,7 @@ A developers guide to integrating your ecommerce site with LiftForward's checkou
 10. The page at the **charge_authorized_url** expects a response from the LiftForward API with the charge information (charge_id, merchant_checkout_id, amount and status)
 11. The page at the **charge_authorized_url** validates the charge details
 12. If valid, the page at the **charge_authorization_url** stores the charge_id from the returned charge object. This **Charge ID** is attached to the order; and is used to uniquely identify the order. **All future charge actions require this identifier.**
-13. Order is created.
+13. Order is created by the merchant e-commerce site.
 14. Customer is presented with order confirmation page/message.
 
 ## Integrating LiftForward checkout.js
