@@ -11,7 +11,7 @@ A developers guide to integrating your ecommerce site with LiftForward's checkou
 ## User Flow
 
 1. Customer creates a cart on the merchant's e-commerce site and begins to checkout.
-2. Customer supplies shipping address and merchant's e-commerce site calculates sales tax rate, taxes and any additional fees (such as the California environmental fee).
+2. Customer supplies checkout details allowing merchant to calculate shipping and other fees (such as the California environmental fee).
 3. Customer clicks the **Checkout with LiftForward** button to select LiftForward as a payment method.
 4. Customer is redirected to the LiftForward site and fills out a credit application application. 
 5. LiftForward reviews the customers application and approves it.
@@ -72,7 +72,6 @@ Here is an example of an `onclick` function that does everything needed:
   var onCheckoutButtonClick = function() {
     var salesQuote = {
       term: 24,
-      total_sales_tax: 77.99,
       total_shipping_fee: 42.00,
       customer_organization_name: "Los Polos Hermanos",
       customer_first_name: "Gus",
@@ -106,7 +105,6 @@ Sales Quote object validation
 The following data in the sales quote object is required:
 
 * Term: Number of payments customer is going to make on the membership.
-* Sales Tax Rate: The sales tax rate based on the customer's shipping address.
 
 There must be at least one item. The following data in each item object is required:
 
@@ -119,7 +117,6 @@ Minimum Example Object:
 ```
 var salesQuote = {
   term: 24,
-  sales_tax_rate: 8.89,
   line_items: [{
     quantity: 4,
     title: "Point of Sale System",
@@ -162,8 +159,6 @@ Full Example Object:
   "shipping_phone": "US",
   "shipping_email": "US",
   "shipping_via": "expedited",
-  "effective_tax_rate": 0.075,
-  "total_sales_tax": 34.44,
   "total_shipping_fee": 35,
   "miscellaneous_fees": [
     {
